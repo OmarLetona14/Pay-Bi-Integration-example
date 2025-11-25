@@ -52,6 +52,27 @@
         animation: fadeInUp 0.8s ease-out forwards;
     }
 
+    .animate-scale-in {
+        animation: scaleIn 0.3s ease-out forwards;
+    }
+}
+
+/* Background Blobs */
+.blob-cont {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
     opacity: 0.4;
     animation: blob 10s infinite cubic-bezier(0.4, 0, 0.2, 1);
 }

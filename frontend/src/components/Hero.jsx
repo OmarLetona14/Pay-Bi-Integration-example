@@ -16,10 +16,10 @@ export default function Hero({ onDonateClick }) {
                     Tu aporte hace la diferencia. Únete a nuestra misión de crear un mejor mañana para todos.
                 </p>
 
-                <div className="pt-8 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+                <div className="pt-8">
                     <button
                         onClick={onDonateClick}
-                        className="btn-primary text-lg md:text-xl px-12 py-5 shadow-[0_0_40px_rgba(255,255,255,0.2)] hover:shadow-[0_0_60px_rgba(255,255,255,0.4)]"
+                        className="btn-primary relative z-50 pointer-events-auto text-lg md:text-xl px-12 py-5 shadow-[0_0_40px_rgba(255,255,255,0.2)] hover:shadow-[0_0_60px_rgba(255,255,255,0.4)]"
                     >
                         Hacer una Donación
                     </button>
