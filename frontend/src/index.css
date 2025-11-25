@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply bg-primary text-white font-sans antialiased overflow-x-hidden selection:bg-white/20;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply font-display tracking-tight;
+    }
+}
+
+@layer components {
+    .btn-primary {
+        @apply bg-white text-black rounded-full font-semibold transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer;
+        box-shadow: 0 0 0 transparent;
+    }
+
+    .btn-primary:hover {
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-secondary {
+        @apply bg-transparent border border-white/10 text-white rounded-full font-semibold transition-all duration-300 hover:bg-white/5 hover:border-white/30 active:scale-95 cursor-pointer;
+    }
+
+    .glass-panel {
+        @apply bg-glass-bg backdrop-blur-xl border border-glass-border shadow-2xl;
+    }
+}
+
+@layer utilities {
+    .text-gradient {
+        @apply bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-200 to-gray-400;
+    }
+
+    .glass-effect {
+        background: rgba(10, 10, 10, 0.6);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .animate-fade-in-up {
+        animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    opacity: 0.4;
+    animation: blob 10s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.blob-1 {
+    top: -10%;
+    left: -10%;
+    width: 50vw;
+    height: 50vw;
+    background: #4a4a4a;
+    animation-delay: 0s;
+}
+
+.blob-2 {
+    bottom: -10%;
+    right: -10%;
+    width: 50vw;
+    height: 50vw;
+    background: #2a2a2a;
+    animation-delay: 2s;
+}
+
+.blob-3 {
+    top: 40%;
+    left: 40%;
+    width: 30vw;
+    height: 30vw;
+    background: #333;
+    animation-delay: 4s;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes blob {
+    0% {
+        transform: translate(0px, 0px) scale(1);
+    }
+
+    33% {
+        transform: translate(30px, -50px) scale(1.1);
+    }
+
+    66% {
+        transform: translate(-20px, 20px) scale(0.9);
+    }
+
+    100% {
+        transform: translate(0px, 0px) scale(1);
+    }
+}
