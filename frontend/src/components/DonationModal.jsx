@@ -80,8 +80,8 @@ export default function DonationModal({ isOpen, onClose }) {
                             key={amount}
                             onClick={() => handleAmountSelect(amount)}
                             className={`py-4 rounded-xl font-semibold text-lg transition-all duration-300 border ${selectedAmount === amount && !isCustom
-                                    ? 'bg-white text-black border-white scale-105 shadow-lg'
-                                    : 'bg-transparent text-white border-white/10 hover:border-white/30 hover:bg-white/5'
+                                ? 'bg-white text-black border-white scale-105 shadow-lg'
+                                : 'bg-transparent text-white border-white/10 hover:border-white/30 hover:bg-white/5'
                                 }`}
                         >
                             Q{amount}
@@ -93,8 +93,8 @@ export default function DonationModal({ isOpen, onClose }) {
                     <button
                         onClick={handleCustomClick}
                         className={`w-full py-4 rounded-xl font-semibold text-lg transition-all duration-300 border mb-4 ${isCustom
-                                ? 'bg-white/10 text-white border-white/50'
-                                : 'bg-transparent text-gray-400 border-white/10 hover:border-white/30 hover:bg-white/5'
+                            ? 'bg-white/10 text-white border-white/50'
+                            : 'bg-transparent text-gray-400 border-white/10 hover:border-white/30 hover:bg-white/5'
                             }`}
                     >
                         Otro Monto
@@ -124,9 +124,9 @@ export default function DonationModal({ isOpen, onClose }) {
                 <button
                     onClick={handleConfirm}
                     disabled={loading || !selectedAmount}
-                    className={`w-full py-4 rounded-full font-bold text-lg transition-all duration-300 ${loading || !selectedAmount
-                            ? 'bg-gray-800 text-gray-500 cursor-not-allowed'
-                            : 'bg-white text-black hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)]'
+                    className={`w-full py-4 rounded-full font-bold text-lg transition-all duration-300 flex items-center justify-center ${loading || !selectedAmount
+                        ? 'bg-gray-800 text-gray-500 cursor-not-allowed'
+                        : 'bg-white text-black hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.3)]'
                         }`}
                 >
                     {loading ? (

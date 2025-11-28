@@ -19,7 +19,7 @@ export default function Hero({ onDonateClick }) {
                 <div className="pt-8">
                     <button
                         onClick={onDonateClick}
-                        className="btn-primary relative z-50 pointer-events-auto text-lg md:text-xl px-12 py-5 shadow-[0_0_40px_rgba(255,255,255,0.2)] hover:shadow-[0_0_60px_rgba(255,255,255,0.4)]"
+                        className="btn-primary relative z-50 pointer-events-auto text-lg md:text-xl px-12 py-5 shadow-[0_0_40px_rgba(255,255,255,0.2)] hover:shadow-[0_0_60px_rgba(255,255,255,0.4)] flex items-center justify-center mx-auto"
                     >
                         Hacer una Donación
                     </button>

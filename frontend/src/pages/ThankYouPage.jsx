@@ -26,8 +26,44 @@ export default function ThankYouPage() {
         }
     }, [navigate]);
 
-    const handlePrint = () => {
-        window.print();
+    const handlePrint = async () => {
+        try {
+            const response = await fetch('http://localhost:3000/api/generate-receipt', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    amount: transactionData.amount,
+                    authorization: transactionData.authorization,
+                    reference: transactionData.reference,
+                    audit: transactionData.audit,
+                    linkCode: transactionData.linkCode
+                }),
+            });
+
+            if (response.ok) {
+                const blob = await response.blob();
+                const url = window.URL.createObjectURL(blob);
+
+                // Create a temporary link to trigger download
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `recibo-${transactionData.authorization || 'donacion'}.pdf`;
+                document.body.appendChild(a);
+                a.click();
+
+                // Cleanup
+                window.URL.revokeObjectURL(url);
+                document.body.removeChild(a);
+            } else {
+                console.error('Failed to generate receipt');
+                alert('No se pudo generar el recibo. Por favor intente de nuevo.');
+            }
+        } catch (error) {
+            console.error('Error generating receipt:', error);
+            alert('Ocurrió un error al generar el recibo.');
+        }
     };
 
     return (
@@ -105,16 +141,16 @@ export default function ThankYouPage() {
                     </div>
 
                     {/* Action Buttons */}
-                    <div className="flex flex-col sm:flex-row gap-4 pt-6">
+                    <div className="flex flex-col sm:flex-row gap-4 pt-6 w-full">
                         <button
                             onClick={() => navigate('/')}
-                            className="btn-primary flex-1"
+                            className="btn-primary flex-1 w-full flex items-center justify-center text-center"
                         >
                             Volver al Inicio
                         </button>
                         <button
                             onClick={handlePrint}
-                            className="btn-secondary flex-1"
+                            className="btn-secondary flex-1 w-full flex items-center justify-center text-center"
                         >
                             Imprimir Recibo
                         </button>
